@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+
+<VBox fx:id="rootNode" alignment="CENTER" prefHeight="400.0" prefWidth="400.0"
+      xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea"
+      fx:controller="com.elenakuropatkina.my.cloud.client.MyClientController">
+    <HBox VBox.vgrow="ALWAYS" fx:id="upperPanel">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            <TextField fx:id="loginField" HBox.hgrow="ALWAYS" promptText="Логин"/>
+            <PasswordField fx:id="passwordField" promptText="Пароль" onAction="#tryToAuth"/>
+            <Button fx:id="btn" text="Auth" onAction="#tryToAuth"/>
+
+            <Label fx:id="label" text="Wrong login/password" visible="false"/>
+        </VBox>
+
+    </HBox>
+    <HBox VBox.vgrow="ALWAYS" fx:id="bottomPanel" managed="false" visible="false" alignment="CENTER">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            <TextField fx:id="tfFileNameLocal" focusTraversable="false" promptText="Укажите имя файла"
+                       HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btn2" onAction="#pressOnUploadBtn" text="Upload"/>
+            <Button fx:id="btn4" onAction="#pressOnDeleteLocalBtn" text="Delete"/>
+            <Button fx:id="btn6" onAction="#pressOnRenameLocalBtn" text="Rename"/>
+            <Button fx:id="btn5" onAction="#pressOnGetListBtn" text="Remote List"/>
+        </VBox>
+        <ListView fx:id="filesList" VBox.vgrow="ALWAYS" onMouseClicked="#selectFileLocal"/>
+        <ListView fx:id="remoteFilesList" VBox.vgrow="ALWAYS" onMouseClicked="#selectFileRemote"/>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+            <TextField fx:id="tfFileNameRemote" focusTraversable="false" promptText="Укажите имя файла"
+                       HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btn1" onAction="#pressOnDownloadBtn" text="Download"/>
+            <Button fx:id="btn3" onAction="#pressOnDeleteRemoteBtn" text="Delete"/>
+            <Button fx:id="btn7" onAction="#pressOnRenameRemoteBtn" text="Rename"/>
+        </VBox>
+
+    </HBox>
+
+</VBox>
+
+
+
+
+
